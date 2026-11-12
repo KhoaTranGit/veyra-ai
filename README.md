@@ -1,4 +1,4 @@
-# RecallCase
+# VEYRA — Vehicle Evidence & Risk Analysis
 
 ### Vehicle Safety Investigator · Agentic RAG on official U.S. public records
 
