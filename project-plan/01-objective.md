@@ -1,4 +1,4 @@
-# RecallCase — Vehicle Safety Investigator
+# VEYRA — Vehicle Evidence & Risk Analysis
 
 > **One-line objective:** Build an evidence-aware RAG application that investigates U.S. vehicle safety complaints and reconstructs how reported problems relate to official investigations and recalls.
 
