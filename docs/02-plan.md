@@ -4,7 +4,7 @@
 **Status:** Implementation blueprint · **Last revised:** November 12, 2026  
 **Objective in one sentence:** Reconstruct evidence-backed timelines connecting vehicle safety complaints, formal investigations, and recalls—without confusing allegations, similarities, or dates with verified facts.
 
-![VEYRA build stages](diagrams/build-stages.svg)
+![VEYRA build stages](docs/build-stages.svg)
 
 ## 1. The user experience
 
