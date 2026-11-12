@@ -90,7 +90,7 @@ Create **60–100 hand-labeled questions** spanning exact lookup, symptom simila
 ## 7. Deliverables and proposed repository
 
 ```text
-recallcase/
+veyra-ai/
 ├── README.md
 ├── objective.md
 ├── plan.md
