@@ -8,8 +8,8 @@ This repository is currently a **project blueprint and illustrative UX prototype
 
 - [**Objective**](objective.md) — one-page description of the purpose and scope.
 - [**Implementation plan**](plan.md) — datasets, retrieval/agent architecture, stages, evaluation, and acceptance criteria.
-- [**Build stages diagram**](diagrams/build-stages.svg) · [**System architecture**](diagrams/system-architecture.svg).
-- [**Interactive UI concept**](ui/interactive-demo.html) · [**UI preview**](ui/ui-preview.png).
+- [**Build stages diagram**](docs/build-stages.svg) · [**System architecture**](docs/system-architecture.svg).
+- [**Interactive UI concept**](docs/interactive-demo.html) · [**UI preview**](docs/ui-preview.png).
 
 ![UI concept — fictional sample records](ui/ui-preview.png)
 
