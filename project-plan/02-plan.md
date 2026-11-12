@@ -1,10 +1,10 @@
-# RecallCase — Vehicle Safety Investigator
+# VEYRA — Vehicle Evidence & Risk Analysis
 
 **Project type:** Solo portfolio project · Agentic retrieval-augmented generation (RAG) · Public-data investigation  
 **Status:** Implementation blueprint · **Last revised:** October 29, 2026  
 **Objective in one sentence:** Reconstruct evidence-backed timelines connecting vehicle safety complaints, formal investigations, and recalls—without confusing allegations, similarities, or dates with verified facts.
 
-![RecallCase build stages](diagrams/build-stages.svg)
+![VEYRA build stages](diagrams/build-stages.svg)
 
 ## 1. The user experience
 
