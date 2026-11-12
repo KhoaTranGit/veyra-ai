@@ -1,4 +1,4 @@
-"""Reproducibility helpers for RecallCase experiments.
+"""Reproducibility helpers for VEYRA-AI experiments.
 
 Call seed_all() near the start of each experiment, before creating models,
 sampling data, or initializing CUDA. This cannot guarantee deterministic

@@ -6,7 +6,7 @@
 Official vehicle-safety information is fragmented across complaint narratives, investigation records, and recall notices. A keyword search can find individual documents, but it does not easily show **what was reported, what was investigated, what was officially established, and when**.
 
 ## What the application does
-A user selects a vehicle (make, model, model year), describes a suspected problem, and optionally sets a historical cutoff date. RecallCase:
+A user selects a vehicle (make, model, model year), describes a suspected problem, and optionally sets a historical cutoff date. VEYRA-AI:
 
 1. Finds relevant complaints using hybrid lexical + semantic search.
 2. Retrieves related investigations and recalls using exact identifiers and structured filters.

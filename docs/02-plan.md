@@ -1,7 +1,7 @@
 # VEYRA — Vehicle Evidence & Risk Analysis
 
 **Project type:** Solo portfolio project · Agentic retrieval-augmented generation (RAG) · Public-data investigation  
-**Status:** Implementation blueprint · **Last revised:** October 29, 2026  
+**Status:** Implementation blueprint · **Last revised:** November 12, 2026  
 **Objective in one sentence:** Reconstruct evidence-backed timelines connecting vehicle safety complaints, formal investigations, and recalls—without confusing allegations, similarities, or dates with verified facts.
 
 ![VEYRA build stages](diagrams/build-stages.svg)
@@ -39,7 +39,7 @@ Three distinctive design features:
 
 ## 4. System architecture
 
-![RecallCase system architecture](diagrams/system-architecture.svg)
+![VEYRA-AI system architecture](diagrams/system-architecture.svg)
 
 **Retrieval:** metadata filtering first (make/model/year, date); then compare **BM25**, **EmbeddingGemma 2 dense search**, and **hybrid search**. Add a reranker only after baselines are measured. Use DuckDB for exact lookups, counts, and timelines; use Qdrant or a small local vector index for narrative retrieval. Index by whole evidence record with smaller passages only when narratives warrant them.
 
@@ -48,6 +48,8 @@ Three distinctive design features:
 `parse_question → choose_tools → retrieve_evidence → optionally refine_once → verify → report`
 
 Tools: `find_vehicle_records`, `search_complaints`, `lookup_official_actions`, `build_timeline`, and `check_evidence`. The agent may ask for at most one retrieval refinement; tool outputs are data, never instructions. IDs, dates, counts, and URLs come from deterministic code, **not fabricated by the LLM**. Unverifiable claims are removed or marked unknown.
+
+**Library choices:** we build on **LangChain** for RAG plumbing—document loaders, text splitters, embedding and vector-store wrappers, retrievers, prompt templates, output parsers, and evaluation helpers—and on **LangGraph** for agent orchestration—the state graph, tool calling, bounded refinement loop, and checkpointing. Do **not** implement important functionality from scratch. Prefer an existing integration over a hand-rolled loader, embedding loop, retriever, state machine, or citation parser; reach for custom code only for VEYRA-specific logic (NHTSA fetching and normalization, the evidence schema, date-cutoff rules, cross-record matching, evidence verification, and metrics) and for thin adapters that wire the libraries to our data. Library defaults are the starting point, not an excuse to skip the evaluation in §6: measured baselines still decide which retriever configuration ships.
 
 ### Minimum evidence schema
 
@@ -81,7 +83,7 @@ Create **60–100 hand-labeled questions** spanning exact lookup, symptom simila
 | BM25 + answer | Lexical baseline |
 | Dense retrieval + answer | Standard semantic RAG baseline |
 | Hybrid + answer | Test lexical/semantic complementarity |
-| Hybrid + bounded agent + verifier | Full RecallCase system |
+| Hybrid + bounded agent + verifier | Full VEYRA-AI system |
 
 **Metrics:** Recall@5 and nDCG@10 for retrieval; claim-level citation validity, source-claim support, date-cutoff violations, false-link rate, abstention quality, median latency, and cost per query for end-to-end answers. Keep fixed test cases and the same candidate corpus across comparisons. Report *observed results*, not predetermined uplift.
 
@@ -118,9 +120,11 @@ veyra-ai/
     └── ui-preview.png
 ```
 
+The `src/` modules are thin adapters around LangChain/LangGraph: they should hold VEYRA-specific logic and wiring, not reimplemented RAG primitives.
+
 **Deliver this MVP:** working local demo, reproducible ingestion + indexing, cited reports, a structured evaluation set and comparison table, diagrams, short limitations section, and reproducibility instructions.
 
-**Not in MVP:** fault diagnosis, future-defect prediction, automatic causality assessment, VIN-specific repair status, nationwide indexing, autonomous browsing, large-scale training, or production deployment. A vehicle *model-year* record is **not** proof that a particular VIN is affected; refer users to the official [NHTSA VIN lookup](https://www.nhtsa.gov/recalls).
+**Not in MVP:** fault diagnosis, future-defect prediction, automatic causality assessment, VIN-specific repair status, nationwide indexing, autonomous browsing, large-scale training, production deployment, or rebuilding retrieval/agent primitives that LangChain and LangGraph already provide. A vehicle *model-year* record is **not** proof that a particular VIN is affected; refer users to the official [NHTSA VIN lookup](https://www.nhtsa.gov/recalls).
 
 ## 8. First three implementation tasks
 
