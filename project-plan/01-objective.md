@@ -28,6 +28,6 @@ The central feature is **time-aware evidence reconstruction**, not merely chatti
 ## Success
 The finished system produces a correct, source-traceable timeline, handles missing or ambiguous evidence without inventing connections, and demonstrates measurable retrieval performance against simpler baselines.
 
-**Safety note:** RecallCase is an investigative research tool—not a diagnostic tool or an official recall checker. For a specific vehicle's open recalls, use [NHTSA's VIN lookup](https://www.nhtsa.gov/recalls).
+**Safety note:** VEYRA is an investigative research tool—not a diagnostic tool or an official recall checker. For a specific vehicle's open recalls, use [NHTSA's VIN lookup](https://www.nhtsa.gov/recalls).
 
 **Primary data source:** [NHTSA Datasets & APIs](https://www.nhtsa.gov/nhtsa-datasets-and-apis).
